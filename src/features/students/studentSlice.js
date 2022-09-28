@@ -50,7 +50,6 @@ export const studentSlice = createSlice({
         updateStudent: (state, action) => {
             let a = action.payload
             let av = state.map((v) => {
-                console.log(v)
                 if (v.id == a.id) {
                     v = a
                 }

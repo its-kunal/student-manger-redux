@@ -3,11 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { NavLink, Routes, Route } from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux"
-import { selectStudent, deleteStudent, updateStudent } from './features/students/studentSlice'
 import ListItem from './components/ListItem'
 import ListItemWithActions from './components/ListItemWithActions'
 import CreateStudent from './components/CreateStudent'
+import UpdateComponent from './components/UpdateComponent'
 
 export default function App() {
   return (
@@ -20,8 +19,8 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="container d-flex mt-5">
-        <nav className="nav nav-pills flex-column d-none d-md-flex" style={{
+      <div className="container d-flex mt-5 flex-column flex-md-row">
+        <nav className="nav nav-pills flex-column d-md-flex" style={{
           minWidth: "150px"
         }}>
           <li className="nav-item">
@@ -47,7 +46,7 @@ export default function App() {
             } />
             <Route path="/students" element={
               <div className='container'>
-                <div className='h5 text-muted`'>Welcome to Student ERP. Click on students tab to find more.</div>
+                <div className='h5 text-muted`'>Welcome to Student ERP.</div>
                 <ul className="list-group mt-3">
                   <ListItemWithActions />
                 </ul>
@@ -56,6 +55,11 @@ export default function App() {
             <Route path='/create' element={
               <div className='container'>
                 <CreateStudent />
+              </div>
+            } />
+            <Route path='/update/:id' element={
+              <div className='container'>
+                <UpdateComponent />
               </div>
             } />
           </Routes>
