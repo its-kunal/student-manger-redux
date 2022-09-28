@@ -44,13 +44,12 @@ export const studentSlice = createSlice({
         },
         deleteStudent: (state, action) => {
             console.log(state)
-            state.filter((v) => {
+            return state.filter((v) => {
                 return v.id != action.payload
             })
-
         },
         updateStudent: (state, action) => {
-            state = state.map((v) => {
+            return state.map((v) => {
                 console.log(v)
                 if (v.id == action.payload.id) {
                     v = action.payload
